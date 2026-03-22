@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: uk_polar_data
+    database: polar-debris-pipeline  
+    schema: uk_polar_data            
+    tables:
+      - name: beach_debris
+        description: "Raw beach debris data from UK Polar Data Centre"

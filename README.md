@@ -18,3 +18,23 @@ This project answers key environmental questions:
 - How has debris collection changed over the past years?
 
 Understanding this patterns can help researchers monitor pollution trend in Antarctica
+
+## Technologies Used
+- **Terraform** - Infrastructure as Code (GCP setup)
+- **Docker** - Containerisation
+- **Kestra** - Workflow orchestration + data ingestion
+- **Google Cloud Storage** - Data lake
+- **BigQuery** - Data warehouse
+- **dbt** - Data transformations
+- **PowerBI** - Dashboard building
+
+## Pipeline Overview
+the ETL (Extract Transform Load) pipeline
+1. Kestra is used to download CSV files from the UK Polar Data Centre API
+2. Raw CSV is uploaded to GCS bucket. 
+## Running the project
+Before running the docker compose up command, make sure that your GCP credentials are added:
+```
+echo $GCP_CREDS > /tmp/gcp-credentials.json
+```
+

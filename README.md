@@ -1,6 +1,9 @@
 # zoomcamp_uk_polar_data
 This is a final project for the Data Engineering Zoomcamp 2026 focused on processing the data from the UK Polar Data Centre
 
+## Architecture
+![image](architecture.png)
+
 ## Problem Statement
 
 Marine debris polution is a growing environmental concern. Marine debris has been monitored on Signy Island, Antarctica since 1991 by British Antarctic Survey. This reserach contributes to the CCAMLR Marine Debris Program. 

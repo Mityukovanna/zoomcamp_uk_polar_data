@@ -56,9 +56,14 @@ The dashboard itself was uploaded as ```Beach Debris dashboard.pbix```
 
 ![image](Dashboard.png)
    
-## Running the project
+## Reproducibility
 Before running the docker compose up command, make sure that your GCP credentials are added:
 ```
 echo $GCP_CREDS > /tmp/gcp-credentials.json
 ```
+After that, you can run everything
+```
+docker compose up
+```
 
+Please note, you need to install the Power BI to use the dashboard. I've added the screenshot with the dashboard in case if you could not access it.

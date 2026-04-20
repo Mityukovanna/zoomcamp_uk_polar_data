@@ -50,6 +50,7 @@ the ETL (Extract Transform Load) pipeline
    
 5. **PowerBI** visualises the transformed data
 
+
 ## The dashboard
 PowerBI tool for data visualisation was used because it is a common tool in industry. This enables quick visuals. PowerBI was connected to the GCP to retrieve the processed data.
 The dashboard itself was uploaded as ```Beach Debris dashboard.pbix```
@@ -63,7 +64,14 @@ echo $GCP_CREDS > /tmp/gcp-credentials.json
 ```
 After that, you can run everything
 ```
-docker compose up
+docker compose -f docker/docker-compose.yml up
 ```
-
 Please note, you need to install the Power BI to use the dashboard. I've added the screenshot with the dashboard in case if you could not access it.
+
+## Note on scheduling
+The pipeline is scheduled to run on the 1st 
+of every month at 9am. To trigger it manually:
+1. Start Docker: `docker compose -f docker/docker-compose.yml up`
+2. Open Kestra at localhost:8080
+3. Click Execute on polar_debris_etl flow
+

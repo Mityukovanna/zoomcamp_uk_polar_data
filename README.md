@@ -33,8 +33,29 @@ Understanding this patterns can help researchers monitor pollution trend in Anta
 
 ## Pipeline Overview
 the ETL (Extract Transform Load) pipeline
-1. Kestra is used to download CSV files from the UK Polar Data Centre API
-2. Raw CSV is uploaded to GCS bucket. 
+1. **Terraform** provisions GCP infrastructure 
+   (GCS bucket + BigQuery dataset)
+
+2. **Kestra** orchestrates the entire data pipeline:
+   - Downloads CSV from UK Polar Data Centre
+   - Uploads raw CSV to GCS bucket (data lake)
+   - Creates external table pointing to GCS
+   - Creates temp table with unique row IDs
+   - Merges data into final BigQuery table
+   - Purges temporary files
+
+3. **dbt** transforms raw BigQuery data into analytical models
+   - Cleans raw data from Big Query
+   - Split season column into a separate year and month which makes it suitable for further analytics
+   
+5. **PowerBI** visualises the transformed data
+
+## The dashboard
+PowerBI tool for data visualisation was used because it is a common tool in industry. This enables quick visuals. PowerBI was connected to the GCP to retrieve the processed data.
+The dashboard itself was uploaded as ```Beach Debris dashboard.pbix```
+
+![image](Dashboard.png)
+   
 ## Running the project
 Before running the docker compose up command, make sure that your GCP credentials are added:
 ```
